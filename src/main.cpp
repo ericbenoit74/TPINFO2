@@ -1,10 +1,25 @@
 #include <Arduino.h>
+#include <GEIIutil.h>
+
+void InitTP1();
+void LoopTP1();
 
 void setup() {
-  // put your setup code here, to run once:
-  
+  InitPort();
+  Serial.begin(9600);
+  InitLCD();
+  lcd.print("INFO2 TP1");
+  InitTP1();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  LoopTP1();
+}
+
+void InitTP1(){
+
+}
+
+void LoopTP1(){
+
 }
