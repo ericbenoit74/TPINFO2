@@ -17,7 +17,7 @@
 #define BIT6 (1<<6)
 #define BIT7 (1<<7)
 
-/* connexion MCU-LCD
+/** connexion MCU-LCD
  * LCD RS pin to digital pin 24
  * LCD Enable pin to digital pin 25
  * LCD D4 pin to digital pin 26
@@ -31,6 +31,11 @@
  * LiquidCrystal lcd(rs, enable, d4, d5, d6, d7) 
  */
 extern LiquidCrystal lcd;
+
+/**
+ * @brief Initialisation de l'écran LCD du kit
+ * 
+ */
 void InitLCD();
 
 /*-----------------------------------------------
@@ -145,10 +150,43 @@ PL0 49 BNC6 IC4 Entree 0
 #define INIT_L B00000000    // initialisation DDRL
 
 //proto
+/**
+ * @brief Initialisation des ports du kit
+ *        Doit être appelée dans la fonction setup()
+ * 
+ */
 void InitPort(void);
+
+/**
+ * @brief Teste l'appui sur bouton poussoir BP1 du kit
+ * 
+ * @return true si le bouton est enfoncé
+ * @return false si le bouton n'est pas enfoncé
+ */
 bool TestAppuiBP1(void);
+
+/**
+ * @brief Teste l'appui sur bouton poussoir BP0 du kit
+ * 
+ * @return true si le bouton est enfoncé
+ * @return false si le bouton n'est pas enfoncé
+ */
 bool TestAppuiBP0(void);
+
+/**
+ * @brief Test de l'interrupteur SW1 du kit
+ * 
+ * @return true 
+ * @return false 
+ */
 bool TestInterSW1(void);
+
+/**
+ * @brief Test de l'interrupteur SW0 du kit
+ * 
+ * @return true 
+ * @return false 
+ */
 bool TestInterSW0(void);
 
 #endif

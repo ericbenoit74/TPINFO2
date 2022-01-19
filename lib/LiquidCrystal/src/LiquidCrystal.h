@@ -42,8 +42,40 @@
 #define LCD_5x10DOTS 0x04
 #define LCD_5x8DOTS 0x00
 
+// When the display powers up, it is configured as follows:
+//
+// 1. Display clear
+// 2. Function set: 
+//    DL = 1; 8-bit interface data 
+//    N = 0; 1-line display 
+//    F = 0; 5x8 dot character font 
+// 3. Display on/off control: 
+//    D = 0; Display off 
+//    C = 0; Cursor off 
+//    B = 0; Blinking off 
+// 4. Entry mode set: 
+//    I/D = 1; Increment by 1 
+//    S = 0; No shift 
+//
+// Note, however, that resetting the Arduino doesn't reset the LCD, so we
+// can't assume that its in that state when a sketch starts (and the
+// LiquidCrystal constructor is called).
 class LiquidCrystal : public Print {
 public:
+/**
+ * @brief Construct a new Liquid Crystal object
+ * 
+ * @param rs 
+ * @param enable 
+ * @param d0 
+ * @param d1 
+ * @param d2 
+ * @param d3 
+ * @param d4 
+ * @param d5 
+ * @param d6 
+ * @param d7 
+ */
   LiquidCrystal(uint8_t rs, uint8_t enable,
 		uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
 		uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7);
@@ -62,6 +94,10 @@ public:
   void begin(uint8_t cols, uint8_t rows, uint8_t charsize = LCD_5x8DOTS);
 
   void clear();
+  /**
+   * @brief Set cursor to initial position
+   * 
+   */
   void home();
 
   void noDisplay();
