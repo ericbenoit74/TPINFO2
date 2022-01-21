@@ -85,4 +85,4 @@ Créez le fichier lib\MesFonctions\README.md dans lequel vous indiquerez pour ch
 * les conditions d'utilisation de la fonction
 * les jutifications de vos choix techniques
 
-Créez des exemples d'utilsation des fonctions dans lib\MesFonctions\examples
+Créez des exemples d'utilisation des fonctions dans lib\MesFonctions\examples

@@ -3,8 +3,8 @@
 /* (c) JN Martin - B Caron 01-2018           */
 /* fichier d'ent�te Fonctions.h              */
 /*-------------------------------------------*/
-#ifndef __Fonctions_h_
-#define __Fonctions_h_
+#ifndef __GEIIutil_h_
+#define __GEIIutil_h_
 #include <Arduino.h>
 #include "LiquidCrystal.h"
 
@@ -34,7 +34,7 @@ extern LiquidCrystal lcd;
 
 /**
  * @brief Initialisation de l'écran LCD du kit
- * 
+ * Cette fonction doit être 
  */
 void InitLCD();
 
