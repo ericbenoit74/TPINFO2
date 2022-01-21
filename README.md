@@ -50,6 +50,11 @@ et ajoutez en fin de fichier:
 
 Puis transférez la définition de la fonction **GereLedsPortC** dans **MesFonctions.cpp** et son prototype dans **MesFonctions.h**. 
 
+Dans main.cpp, ajoutez `#include <MesFonctions.h>`.  
+Si l'IDE vous indique qu'il ne trouve pas le fichier, glissez la souris sur la ligne erronée, glissez puis cliquez sur **Quick Fix** puis sélectionnez la ligne **add to include path**.
+
+> Attention, dans d'autres circonstances, Quick Fix peut proposer de mauvaises solutions. N'en abusez pas.
+
 ### 6. Documentation
 
 #### 6.1 Documentation dans le code
