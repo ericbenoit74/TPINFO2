@@ -1,4 +1,4 @@
-# GEIItpINFO2
+# TPINFO2
 
 ## Présentation
 
