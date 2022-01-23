@@ -2,30 +2,30 @@
 
 ## Présentation
 
-Ce projet sert de base pour une série de travaux pratiques d'informatique embaquée a réaliser sur le kit de dévelopement de l'IUT GEII d'Annecy.
+Ce projet sert de base pour une série de travaux pratiques d'informatique embaquée à réaliser sur le kit de dévelopement de l'IUT GEII d'Annecy.
 
 ## Procédure de codage d'une fonction
 
-Nous prendrons comme exemple la première fonction à coder du TP1, la fonction qui défini l'état d'une LED du kit et dont le prototype est:
+Nous prendrons comme exemple la première fonction à coder du TP1, la fonction qui définit l'état d'une LED du kit et dont le prototype est:
 
 > `void GereLedsPortC(int8_t x_int8_numLed, bool x_bool_etat);`
 
-###1. Codage de la fonctionnalité
+### 1. Codage de la fonctionnalité
 
-Dans la fonction `setup()` écrivez les lignes qui allument la première LED.  
+Dans la fonction `setup()` du fichier **src\main.cpp** écrivez les lignes qui allument la première LED.  
 Ajoutez au dessus une ligne de commentaire qui explique la fonctionnalité:
 
 > `// allumage de la LED 0`
 
-###2. Test de la fonctionnalité
+### 2. Test de la fonctionnalité
 
-Compilez pour chargez le programme dans le kit pour vérifier le bon fonctionnement de la fonctionalité : la première LED doit s'allumer.
+Compilez puis chargez le programme dans le kit pour vérifier le bon fonctionnement de la fonctionalité : la première LED doit s'allumer.
 
 Mettez les lignes en commentaire et refaite l'opération pour une autre fonctionnalité.
 
 ### 3. Création d'une fonction
 
-Codez la fonction dans le fichier main.cpp. Si necessaire, créez une fonction pour l'initialisation.
+Codez la fonction dans le fichier main.cpp. Si nécessaire, créez une fonction pour l'initialisation.
 
 ### 4. Test de la fonction
 
@@ -33,7 +33,7 @@ Testez la fonction avec un jeu de données représentatif dans un environnement 
 
 Pour des TPs ultérieurs uniquement: Créez et exécutez les tests unitaires.
 
-Retournez au point 3 si necessaire.
+Retournez au point 3 si nécessaire.
 
 ### 5. Création d'une bibliothèque:
 
@@ -41,7 +41,7 @@ Dans le dossier **lib** du projet, créez la bibliothèque **MesFonctions** (**M
 
 Pour éviter les erreurs en cas d'inclusion multiples, ajoutez au début du fichier **MesFonctions.h**:  
 
-> `#ifndef __MesFonctions_h_`
+> `#ifndef __MesFonctions_h_`  
 > `#define __MesFonctions_h_` 
 
 et ajoutez en fin de fichier:
@@ -65,11 +65,11 @@ Pour créer un commentaire, tapez `/**` puis 'entrée' juste au-dessus de la lig
 `void GereLedsPortC(int8_t x_int8_numLed, bool x_bool_etat);`
 Le bloc suivant doit apparaître automatiquement:
 
-> `/**`
-> ` * @brief` 
-> ` *` 
-> `* @param x_int8_numLed `
-> `* @param x_bool_etat `
+> `/**`  
+> ` * @brief`  
+> ` *`  
+> `* @param x_int8_numLed `  
+> `* @param x_bool_etat `  
 > `*/`
 
 Vous pouvez alors compléter les lignes:
@@ -84,10 +84,10 @@ La création automatique de documentation à partir de ce bloc sera abordée plu
 
 #### 6.2 Documentation externe
 
-Créez le fichier lib\MesFonctions\README.md dans lequel vous indiquerez pour chaque fonction:
+Créez le fichier **lib\MesFonctions\README.md** (inspirez-vous du fichier **README.md** pour la syntaxe) dans lequel vous indiquerez pour chaque fonction:
 
 * le fonctionnement de la fonction
 * les conditions d'utilisation de la fonction
 * les jutifications de vos choix techniques
 
-Créez des exemples d'utilisation des fonctions dans lib\MesFonctions\examples
+Créez des exemples d'utilisation des fonctions dans **lib\MesFonctions\examples** en y copiant votre fichier **src\main.cpp** au fur et à mesure que vous finalisez des programmes et en le renomant. Par exemple: **lib\MesFonctions\examples\main_clignotement.cpp**.
