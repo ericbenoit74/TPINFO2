@@ -4,14 +4,15 @@
 
 void setup() {
   InitPort();
-  Serial.begin(9600);
+//  Serial.begin(9600);
   InitLCD();
   lcd.print("INFO2 TP1");
 
   // initialisation du PORTC
   PORTC = DDRCINIT;
+  PORTC = PORTC & 0xF0;
 
-  GereLedsPortC(0,true);
+  GereLedsPortC(1,true);
   
 }
 

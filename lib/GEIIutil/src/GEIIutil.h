@@ -34,7 +34,7 @@ extern LiquidCrystal lcd;
 
 /**
  * @brief Initialisation de l'écran LCD du kit
- * Cette fonction doit être 
+ * Cette fonction doit être appelée avant toute utilisation du LCD
  */
 void InitLCD();
 
