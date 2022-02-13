@@ -10,25 +10,32 @@ void setup(){
 	InitLCD();				//ordre des inits important
 	lcd.print("TP2");
 	Serial.println("TP2");
+	//InitCan8();
+	//InitCan10();
 	g_Conv8.Init();
 }
 
 //SANS FIN 
 
 void loop() {
-	int8_t l_int8_ValCan;
+	byte byValCan;
+	word wValCan;
 #ifdef DEBUG3
-	uint32_t l_uint32_time = 0;
-	l_uint32_time = micros();
+	unsigned long ulTime = 0;
+	ulTime = micros();
 #endif
-	l_int8_ValCan = g_Conv8.Conv();
+	//byValCan = ConvAN8();
+	byValCan = g_Conv8.Conv();
+	//wValCan = ConvAN10();
+	//wValCan = Conv8.ConvAN8();
 	
 #ifdef DEBUG3
-	l_uint32_time = micros() - l_uint32_time;
-	Serial.println(l_uint32_time);
+	ulTime = micros() - ulTime;
+	Serial.println(ulTime);
 #endif
 	Serial.print("CAN = ");
-	Serial.println(l_int8_ValCan);
+	Serial.println(byValCan);
+	//Serial.println(wValCan);
 	delay(1000);
 }
 
