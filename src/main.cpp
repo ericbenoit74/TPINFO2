@@ -1,34 +1,28 @@
 #include <Arduino.h>
 #include <GEIIutil.h>
-#include <cna.h>
-#define DEBUG3
-CConvAN8 g_Conv8;
+#include <Timer3.h>
+
+CTimer3PE3 g_MonTimer;
 
 void setup(){
 	InitPort();
 	Serial.begin(9600);		//pour visualisation sur Serial Monitor
 	InitLCD();				//ordre des inits important
-	lcd.print("TP2");
-	Serial.println("TP2");
-	g_Conv8.Init();
+	lcd.print("TP3");
+	Serial.println("TP3");
+	g_MonTimer.InitTimer3PE3();
+
+	// dans la fonction setup pour tester rapidement
+	g_MonTimer.FreqTimer3PE3(1000);
+	g_MonTimer.DemTimer3PE3();
+	delay(500);
+	g_MonTimer.StopTimer3PE3();
 }
 
 //SANS FIN 
 
 void loop() {
-	int8_t l_int8_ValCan;
-#ifdef DEBUG3
-	uint32_t l_uint32_time = 0;
-	l_uint32_time = micros();
-#endif
-	l_int8_ValCan = g_Conv8.Conv();
 	
-#ifdef DEBUG3
-	l_uint32_time = micros() - l_uint32_time;
-	Serial.println(l_uint32_time);
-#endif
-	Serial.print("CAN = ");
-	Serial.println(l_int8_ValCan);
-	delay(1000);
+
 }
 
