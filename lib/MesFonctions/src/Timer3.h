@@ -11,13 +11,7 @@ void FreqTimer3PE3(unsigned long ulFrequence);
 
 class CTimer3PE3 {
 public:
-  /************************
-  InitTimer3PE3
-  G�n�re un signal carr� � 1kHz sur PE3 � partir du timer3
 
-  param�tres : aucun
-  retourne rien
-  **************************/
   //Configuration du coupleur
   //  Utilisation du timer3
   //  WGM3 3:0 = 4  OCR3A(pour piloter la broche OC3A et donc PE3) utilis� en mode CTC
@@ -38,43 +32,39 @@ public:
   //  TCCR3C = 0
   //  OCR3A = 1000
   //  PORTE = bxxxx1xxx
+
+  /**
+   * @brief Configure timer3 pour générer un signal carré de 1KHz sur PE3
+   * 
+   */
   void InitTimer3PE3(void);
 
-  /************************
-  DemTimer3PE3
-  G�n�re un signal carr� � 1kHz sur PE3 � partir du timer3
-  Utiliser InitTimer3PE3() au pr�alable
-  param�tres : aucun
-  retourne rien
-  **************************/
-
-
-  void DemTimer3PE3(void);
-
-  /************************
-  StopTimer3PE3
-  Stoppe la g�n�ration d'un signal carr� � 1kHz sur PE3 � partir du timer3
-  Utiliser InitTimer3PE3() au pr�alable
-  param�tres : aucun
-  retourne rien
-  **************************/
- 
-  void StopTimer3PE3(void);
-  /************************
-  FreqTimer3PE3
-  modifie la fr�quence de la g�n�ration d'un signal carr� sur PE3 � partir du timer3
-  Utiliser InitTimer3PE3() au pr�alable
-  param�tres :
-  unsigned long fr�quence de 15Hz � 1000000Hz par pas de 15.25 Hz
-  retourne rien
-  **************************/
-
  /**
-  * @brief Modifie la fréquence du signal produit via le timer3
+  * @brief Démarre la génération du signal sur PE3
   * 
   * Utiliser InitTimer3PE3() au préalable
   * 
-  * @param ulFrequence fréquence de 15
+  * @see CTimer3PE3::InitTimer3PE3
+  * 
+  */
+  void DemTimer3PE3(void);
+ 
+ /**
+  * @brief Stoppe la génération du signal sur PE3
+  * 
+  * Utiliser InitTimer3PE3() au préalable
+  * 
+  * @see CTimer3PE3::InitTimer3PE3
+  */
+  void StopTimer3PE3(void);
+
+ /**
+  * @brief Modifie la fréquence du signal produit sur PE3 via le timer3
+  * 
+  * Utiliser InitTimer3PE3() au préalable
+  * 
+  * @param ulFrequence fréquence de 15Hz à 1MHz par pas de 15.25Hz
+  * @see CTimer3PE3::InitTimer3PE3
   */
   void FreqTimer3PE3(unsigned long ulFrequence);
 };
