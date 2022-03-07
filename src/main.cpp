@@ -16,6 +16,10 @@ void setup(){
 	g_MonTimer.FreqTimer3PE3(1000);
 	g_MonTimer.DemTimer3PE3();
 	delay(500);
+	g_MonTimer.StopTimer3PE3();	
+	delay(500);
+	g_MonTimer.DemTimer3PE3();
+	delay(500);
 	g_MonTimer.StopTimer3PE3();
 }
 

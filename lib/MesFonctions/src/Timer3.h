@@ -3,18 +3,22 @@
 #include <Arduino.h>
 #include <GEIIutil.h>
 
+// Dodeka : C K D T E F H G P A V B
+//          C   D   E F   G   A   B
+// {261.63,277.18,293.66,311.13,329.63,349.23,369.99,392,415.3,440,466.16,493.88}
 
+// déclaration des fonctions
 void InitTimer3PE3(void);
 void DemTimer3PE3(void);
 void StopTimer3PE3(void);
 void FreqTimer3PE3(unsigned long ulFrequence);
 
+// déclaration de la classe
 class CTimer3PE3 {
 public:
 
   //Configuration du coupleur
   //  Utilisation du timer3
-  //  WGM3 3:0 = 4  OCR3A(pour piloter la broche OC3A et donc PE3) utilis� en mode CTC
   //  WGM3 3:0 = 4  OCR3A(pour piloter la broche OC3A et donc PE3) utilis� en mode CTC
   //  COM3A1  COM3A0 COM3B1 COM3B0 COM3C1 COM3C0 = 010000 OC3A en mode toggle, cad que OC3A(PE3) va changer d��tat � chaque fois que le compteur TCNT3 sera �gal �  OCR3A
   //  Pas de signal externe. On met quand m�me ICNC3 = 0 pas de filtre et ICES3 = 1 capture front montant
@@ -67,5 +71,7 @@ public:
   * @see CTimer3PE3::InitTimer3PE3
   */
   void FreqTimer3PE3(unsigned long ulFrequence);
+  private:
+  float dodeka[12] = {261.63,277.18,293.66,311.13,329.63,349.23,369.99,392,415.3,440,466.16,493.88};
 };
 #endif
