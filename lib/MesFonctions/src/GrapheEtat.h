@@ -14,10 +14,11 @@ typedef enum { LEDSON, LEDSOFF, LEDS_ONC } TypeEtat;
 class CGrapheEtat{
 private:
     // Etat 
-    TypeEtat  Etat, EtatOld;
+    TypeEtat  m_Etat_courant;
+    TypeEtat  m_Etat_old;
     // variables de mémorisation des entrées
-    bool bBP1 = false;
-	bool bFinTempo = true;
+    bool m_bool_BP1 = false;
+	bool m_bool_FinTempo = true;
 public:	
     /**
      * @brief Initialisation du graphe
