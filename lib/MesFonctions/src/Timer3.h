@@ -72,8 +72,7 @@ public:
   */
   void FreqTimer3PE3(unsigned long ulFrequence);
 
-  void play(char note,)
   float dodeka[12] = {261.63,277.18,293.66,311.13,329.63,349.23,369.99,392,415.3,440,466.16,493.88};
-  char *noteDodeka = "CKDTEFHGPAVBC"
+  char *noteDodeka = "CKDTEFHGPAVBC";
 };
 #endif
