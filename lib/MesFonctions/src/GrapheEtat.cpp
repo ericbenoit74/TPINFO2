@@ -14,7 +14,7 @@ void CGrapheEtat::Entrees(void) {
 	bFinTempo = TestTempoNB();
 }
 
-void CGrapheEtat::Evolue(void) {							// machine d'�tats
+void CGrapheEtat::Evolue(void) {				
     switch (Etat){
     case LEDSOFF:
         if (true == bBP1){
