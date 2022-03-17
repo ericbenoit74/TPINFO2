@@ -1,7 +1,6 @@
 #ifndef __GrapheEtat_h
 #define __GrapheEtat_h
 
-#define BLSB B00001111
 typedef enum { LEDSON, LEDSOFF, LEDS_ONC } TypeEtat;
 
 class CGrapheEtat{

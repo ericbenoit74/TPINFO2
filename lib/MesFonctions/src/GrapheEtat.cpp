@@ -2,6 +2,8 @@
 #include <MesFonctions.h>
 #include <TempoNonBloquante.h>
 
+#define BLSB B00001111
+
 void CGrapheEtat::Init(void) {
 	Etat = LEDSOFF;
 	EtatOld = LEDSOFF;
