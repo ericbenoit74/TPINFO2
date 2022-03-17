@@ -13,11 +13,12 @@ void setup(){
 	g_MonTimer.InitTimer3PE3();
 
 	// dans la fonction setup pour tester rapidement
-	g_MonTimer.FreqTimer3PE3(1000);
+	g_MonTimer.FreqTimer3PE3(g_MonTimer.dodeka[0]);
 	g_MonTimer.DemTimer3PE3();
 	delay(500);
 	g_MonTimer.StopTimer3PE3();	
 	delay(500);
+	g_MonTimer.FreqTimer3PE3(g_MonTimer.dodeka[1]);
 	g_MonTimer.DemTimer3PE3();
 	delay(500);
 	g_MonTimer.StopTimer3PE3();
