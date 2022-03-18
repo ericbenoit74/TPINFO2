@@ -5,33 +5,33 @@
 #define BLSB B00001111
 
 void CGrapheEtat::Init(void) {
-	Etat = LEDSOFF;
-	EtatOld = LEDSOFF;
+	m_Etat_courant = LEDSOFF;
+	m_Etat_old = LEDSOFF;
 }
 
 void CGrapheEtat::Entrees(void) {
-	bBP1 = TestBP1();
-	bFinTempo = TestTempoNB();
+	m_bool_BP1 = TestBP1();
+	m_bool_FinTempo = TestTempoNB();
 }
 
 void CGrapheEtat::Evolue(void) {				
-    switch (Etat){
+    switch (m_Etat_courant){
     case LEDSOFF:
-        if (true == bBP1){
-            Etat = LEDSON;
+        if (true == m_bool_BP1){
+            m_Etat_courant = LEDSON;
         }
         break;
     case LEDSON:
-        if (false == bBP1){
-            Etat = LEDS_ONC;
+        if (false == m_bool_BP1){
+            m_Etat_courant = LEDS_ONC;
         }
         break;
     case LEDS_ONC:
-        if ((true == bFinTempo) && (false == bBP1)){
-            Etat = LEDSOFF;
+        if ((true == m_bool_FinTempo) && (false == m_bool_BP1)){
+            m_Etat_courant = LEDSOFF;
         }
-        else if ((false == bFinTempo) && (true == bBP1)){
-            Etat = LEDSON;
+        else if ((false == m_bool_FinTempo) && (true == m_bool_BP1)){
+            m_Etat_courant = LEDSON;
         }
         break;
     }
@@ -40,9 +40,9 @@ void CGrapheEtat::Evolue(void) {
 void CGrapheEtat::Sorties(void)
 {
     // �criture sur les sorties
-    if (Etat != EtatOld){
-        EtatOld = Etat;
-        switch (Etat){
+    if (m_Etat_courant != m_Etat_old){
+        m_Etat_old = m_Etat_courant;
+        switch (m_Etat_courant){
         case LEDSOFF:
             PORTC = PORTC & ~BLSB;
             break;
