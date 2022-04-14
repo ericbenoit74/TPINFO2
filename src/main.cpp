@@ -8,7 +8,12 @@ void setup(){
 	InitLiaisonSerie();
 	InitLCD();				//ordre des inits important
 	lcd.print("TP4");
-	Serial.println("TP4");
+	//Serial.println("TP4");
+	EcritCar('T');
+	EcritCar('P');
+	EcritCar('4');
+	EcritCar(13);
+	EcritCar(10);
 }
 
 //SANS FIN 
