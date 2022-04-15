@@ -1,31 +1,28 @@
 #include <Arduino.h>
 #include <GEIIutil.h>
-#include <MySerial.h>
 
 
 void setup(){
 	InitPort();
-	InitLiaisonSerie();
 	InitLCD();				//ordre des inits important
-	lcd.print("TP4");
-	//Serial.println("TP4");
-	EcritCar('T');
-	EcritCar('P');
-	EcritCar('4');
-	EcritCar(13);
-	EcritCar(10);
+	lcd.print("TP7");
+	Serial.println("TP7");
+
+	noInterrupts();      			// pas d�its pendant la phase d�init
+	TCCR1A = 0;						// mode normal (timer avec d�bordement)
+	TCCR1B = 1 << CS12; 			// 256 prescaler Tclk = 32us
+	TIMSK1 = TIMSK1 | 1 << TOIE1;	// 
+	interrupts();					// autorise toutes les its configur�es
+
 }
 
 //SANS FIN 
 
 void loop() {
-	// EcritCar('A');
-	// delay(2);
 
-	char l_char_C = LitCarNB();
-    if(l_char_C != 0){
-		EcritCar(':');
-		EcritCar(l_char_C);
-	}
 }
 
+ISR(TIMER1_OVF_vect) {       	 // ISR = interrupt service routine
+	TCNT1 = 3036;                // toutes les 1000ms
+	PORTC = PORTC ^ (BIT1);  // OUEX: inverse b4 uniquement
+}
