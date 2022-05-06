@@ -9,11 +9,11 @@ param�tres : aucun
 retourne rien
 **************************/
 void InitLiaisonSerie(void) {
-	UBRR0L = 103;
+	UBRR0L = 103;						// 9600 bits/s
 	UBRR0H = 0;
 	UCSR0A = 0;
-	UCSR0B = 1 << RXEN0 | 1 << TXEN0;
-	UCSR0C = 1 << UCSZ01 | 1 << UCSZ00;
+	UCSR0B = 1 << RXEN0 | 1 << TXEN0;   // = 0x18
+	UCSR0C = 1 << UCSZ01 | 1 << UCSZ00; // = 0x06
 }
 /************************
 EcritCar
@@ -24,7 +24,7 @@ retourne rien
 void EcritCar(char cCar) {
 	// attente registre vide pour transmettre
 	do {
-		//} while ((UCSR0A & BIT5) != BIT5); //vide si b5=UDRE0=0
+	//} while ((UCSR0A & BIT5) != BIT5); //vide si b5=UDRE0=0
 	} while ((UCSR0A &( 1 << UDRE0)) != (1 << UDRE0)); //vide si b5=UDRE0=0
 	UDR0 = cCar;
 }
