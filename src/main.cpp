@@ -29,6 +29,6 @@ void loop() {
 #endif
 	Serial.print("CAN = ");
 	Serial.println(l_int8_ValCan);
-	delay(1000);
+	delay(100);
 }
 
